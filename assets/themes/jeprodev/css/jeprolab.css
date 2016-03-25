@@ -1,0 +1,67 @@
+.icon-highly_satisfy{}
+.icon-satisfy{}
+.icon-unsatisfy{}
+.icon-highly_unsatisfy{}
+
+.table-header-rotated{ max-width: 96%; }
+
+.table-header-rotated th.row-header{ width: auto; }
+.table-header-rotated td{
+    width: 45px;
+    border-top: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    vertical-align: middle;
+    text-align: center;
+}
+.table-header-rotated th.rotate-45{
+    height: 160px;
+    width: 25px;
+    min-width: 25px;
+    max-width: 25px;
+    position: relative;
+    vertical-align: bottom;
+    padding: 0;
+    font-size: 16px;
+    /*line-height: 0.8; */
+}
+
+.table-header-rotated th.rotate-45 > div{
+    position: relative;
+    top: 0px;
+    left: 80px; /* 80 * tan(45) / 2 = 45 where 80 is the height on the cell and 45 is the transform angle*/
+    height: 100%;
+    -ms-transform:skew(-45deg,0deg);
+    -moz-transform:skew(-45deg,0deg);
+    -webkit-transform:skew(-45deg,0deg);
+    -o-transform:skew(-45deg,0deg);
+    transform:skew(-45deg,0deg);
+    overflow: hidden;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+}
+
+.table-header-rotated th.rotate-45 span {
+    -ms-transform:skew(45deg,0deg) rotate(315deg);
+    -moz-transform:skew(45deg,0deg) rotate(315deg);
+    -webkit-transform:skew(45deg,0deg) rotate(315deg);
+    -o-transform:skew(45deg,0deg) rotate(315deg);
+    transform:skew(45deg,0deg) rotate(315deg);
+    position: absolute;
+    bottom: 30px; /* 45 cos(45) = 28 with an additional 2px margin*/
+    left: -20px; /*Because it looked good, but there is probably a mathematical link here as well*/
+    display: inline-block;
+// width: 100%;
+    width: 85px; /* 80 / cos(45) - 45 cos (45) = 85 where 80 is the height of the cell, 45 the width of the cell and 45 the transform angle*/
+    text-align: left;
+// white-space: nowrap; /*whether to display in one line or not*/
+}
+
+.icon-highly_satisfy{ background: url("../images/highly_satisfy.png"); }
+.icon-highly_unsatisfy{ background: url("../images/highly_unsatisfy.png"); }
+.icon-satisfy{ background: url("../images/satisfy.png"); }
+.icon-unsatisfy{ background: url("../images/unsatisfy.png"); }
+
+tfoot tr{ border: none; }
+.design_wrap{  }

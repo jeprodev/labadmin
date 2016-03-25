@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<access component="com_jeprolab" >
+    <section name="feed" >
+        <action nam="core.create" title="JACTION_CREATE" description="COM_JEPROLAB_ACCESS_CREATE_DESC" />
+        <action nam="core.delete" title="JACTION_DELETE" description="COM_JEPROLAB_ACCESS_DELETE_DESC" />
+    </section>
+</access>

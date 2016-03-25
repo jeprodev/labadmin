@@ -1,0 +1,62 @@
+@CHARSET "ISO-8859-1";
+
+.right{ float:right;}
+.left{ float:left; }
+.half_wrapper{width:49%; }
+.half_wrapper_left{width:55%; float:left;}
+.half_wrapper_right{width:44%; float: right; }
+.one_third{ width:32%; }
+.half_wrapper .control-label{width:30%; }
+.half_wrapper .controls{ width:62%; margin-right: 3px; }
+.one_third{width:32%; margin-right:1%; float:left;}
+.separation{ clear:both; margin:10px;}
+.url{ width:500px; }
+.fixed_width_sm, .medium_select{ width:160px; }
+.payment_method{width:130px;}
+.input_date_box{ width:70px; }
+.currency_sign{ width:45px;}
+.translatable{}
+.translatable .input_lang{ float:left; margin-right:5px;}
+.translatable .input_lang input[type="text"]{width:180px;}
+.translatable .btn-group-action{}
+.jeprolab_sub_menu_wrapper{ margin-bottom:20px;}
+.list-inline{ display:inline;}
+.info_left{width:49%; float:left;}
+.info_right{width:49%; float:right;}
+.icon-shopping-cart{}
+.label{}
+.label-success{}
+.label-danger{}
+.total_box_wrapper{width:54%; float:right; }
+.panel_warning{width:44%; float:left; margin-top:15px; }
+.panel_total{ margin-top:10px; }
+.icon-ok-circle{background-image: url("../images/icon16/icon-valid-green.png"); }
+.icon-exclamation-sign{}
+.icon-big{}
+.unit_box{ width:85px;}
+/** price boxes **/
+.price_box{ width:65px; }
+.middle_size{ width:120px;}
+
+/** panel styling **/
+.panel{ margin-top:30px; margin-bottom:20px; }
+.panel .form_layout .controls{ }
+.panel .form_layout .control-label{ text-align: right; width:30%; padding: 0;}
+.panel .form_layout .control-label label{ text-align: right; margin-top: 0; font-weight:bold;}
+.panel-title{ height:20px; margin-bottom: -2px; padding: 10px 5px; font-weight: bold;
+    border-radius: 5px 5px 0px 0px;
+    -moz-border-radius: 5px 5px 0px 0px;
+    -webkit-border-radius: 5px 5px 0px 0px;
+    border: 1px solid #b0adb0;
+    background: -webkit-linear-gradient(top, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
+    background: -o-linear-gradient(top, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
+    background: -ms-linear-gradient(top, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
+    background: -moz-linear-gradient(top, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
+    background: linear-gradient(to bottom, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
+}
+.panel_title{
+    margin:0 0 10px 0; font-weight:bold; height:26px; padding-top:5px; padding-left: 10px;   background-image:url("../images/panel_title.png");
+}
+
+#customer_form .control-label label{ text-align:right; }
+#logo_wrapper{ width:150px; margin-right: 10px; }

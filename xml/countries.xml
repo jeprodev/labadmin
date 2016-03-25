@@ -1,0 +1,8 @@
+<countries>
+    <country>
+        <name></name>
+        <iso_code></iso_code>
+        <call_prefix></call_prefix>
+        <contains_states></contains_states>
+    </country>
+</countries>
