@@ -37,22 +37,22 @@ $document->addScript(JURI::base(). 'components/com_jeprolab/assets/javascript/ed
         <div id="j-main-container"  <?php if(!empty($this->sideBar)){ echo 'class="span10"'; }?> >
             <div class="box_wrapper jeprolab_sub_menu_wrapper">
                 <fieldset class="btn-group">
-                    <a href="<?php echo JRoute::_('index.php?option=com_jeprolab&view=feed'); ?>" class="btn" ><i class="icon-" ></i> <?php echo JText::_('COM_JEPROLAB_FEEDS_LABEL'); ?></a>
-                    <a href="<?php echo JRoute::_('index.php?option=com_jeprolab&view=feed'); ?>" class="btn" ><i class="icon-" ></i> <?php echo JText::_('COM_JEPROLAB_LABEL'); ?></a>
+                    <a href="<?php echo JRoute::_('index.php?option=com_jeprolab&view=feed'); ?>" class="btn btn-success" ><i class="icon-" ></i> <?php echo JText::_('COM_JEPROLAB_FEED_LABEL'); ?></a>
+                    <a href="<?php echo JRoute::_('index.php?option=com_jeprolab&view=feedback'); ?>" class="btn" ><i class="icon-" ></i> <?php echo JText::_('COM_JEPROLAB_FEEDBACK_LABEL'); ?></a>
                 </fieldset>
             </div>
             <div id="feed_add_form" >
                 <div class="control-group" >
                     <div class="control-label" ><label for="jform_feed_title-label" ><?php echo JText::_('COM_JEPROLAB_FEED_TITLE_LABEL'); ?></label></div>
-                    <div class="controls" ><?php echo  $this->helper->multiLanguageInputField('feed_title', true, $this->feed->feed_title); ?></div>
+                    <div class="controls" ><?php echo  $this->helper->multiLanguageInputField('feed_title', true, true, $this->feed->feed_title); ?></div>
                 </div>
                 <div class="control-group" >
                     <div class="control-label" ><label for="jform_feed_link" id="jform_feed_link-label" title="<?php echo JText::_('COM_JEPROLAB_FEED_LINK_TITLE_DESC'); ?>" ><?php echo JText::_('COM_JEPROLAB_FEED_LINK_LABEL'); ?></label></div>
-                    <div class="controls" ><?php echo $this->helper->multiLanguageInputField('feed_link', true,  $this->feed->feed_link);  ?></div>
+                    <div class="controls" ><?php echo $this->helper->multiLanguageInputField('feed_link', true, true, $this->feed->feed_link);  ?></div>
                 </div>
                 <div class="control-group" >
                     <div class="control-label" ><label for="jform_feed_description" id="jform_feed_description-label" title="<?php echo JText::_('COM_JEPROLAB_FEED_DESCRIPTION_TITLE_DESC'); ?>"><?php echo JText::_('COM_JEPROLAB_FEED_DESCRIPTION_LABEL'); ?></label></div>
-                    <div class="controls"  ><?php echo $this->helper->multiLanguageTextAreaField('feed_description',  $this->feed->feed_description);  ?></div>
+                    <div class="controls"  ><?php echo $this->helper->multiLanguageTextAreaField('feed_description', true,  $this->feed->feed_description);  ?></div>
                 </div>
                 <div style="clear: both;" ></div>
                 <div class="control-group" >

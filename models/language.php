@@ -116,7 +116,6 @@ class JeprolabLanguageModelLanguage extends JModelLegacy
      *
      * @param bool $published
      * @param bool $lab_id
-     * @internal param bool $active Select only active languages
      * @return array Languages
      */
     public static function getLanguages($published = true, $lab_id = false){

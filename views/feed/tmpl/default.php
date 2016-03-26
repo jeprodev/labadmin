@@ -40,23 +40,22 @@ JHtml::_('formbehavior.chosen', 'select');
         <div id="j-main-container"  <?php if(!empty($this->sideBar)){ echo 'class="span10"'; }?> >
             <div class="box_wrapper jeproshop_sub_menu_wrapper">
                 <fieldset class="btn-group">
-                    <a href="<?php echo JRoute::_('index.php?option=com_jeproshop&view=feed'); ?>" class="btn" ><i class="icon-" ></i> <?php echo JText::_('COM_JEPROLAB_FEEDS_LABEL'); ?></a>
-                    <a href="<?php echo JRoute::_('index.php?option=com_jeproshop&view=feed'); ?>" class="btn" ><i class="icon-" ></i> <?php echo JText::_('COM_JEPROLAB_LABEL'); ?></a>
+                    <a href="<?php echo JRoute::_('index.php?option=com_jeprolab&view=feed'); ?>" class="btn btn-success" ><i class="icon-" ></i> <?php echo JText::_('COM_JEPROLAB_FEED_LABEL'); ?></a>
+                    <a href="<?php echo JRoute::_('index.php?option=com_jeprolab&view=feedback'); ?>" class="btn" ><i class="icon-" ></i> <?php echo JText::_('COM_JEPROLAB_FEEDBACK_LABEL'); ?></a>
                 </fieldset>
             </div>
             <div class="panel" >
-                <div class="panel-title" ></div>
                 <div class="panel-content" >
                     <table class="table table-striped" id="addressList">
                         <thead>
-                        <tr>
-                            <th class="nowrap center" width="1%">#</th>
-                            <th class="nowrap center" width="1%"><?php echo JHtml::_('grid.checkall'); ?></th>
-                            <th class="nowrap " width="6%"><?php echo JText::_('COM_JEPROLAB_FEED_AUTHOR_LABEL'); ?></th>
-                            <th class="nowrap hidden-phone" width="12%"><?php echo JText::_('COM_JEPROLAB_FEED_TITLE_LABEL'); ?></th>
-                            <th class="nowrap " width="70%"><?php echo JText::_('COM_JEPROLAB_FEED_DESCRIPTION_LABEL'); ?></th>
-                            <th class="nowrap " width="4%"><span class="pull-right" ><?php echo JText::_('COM_JEPROLAB_ACTIONS_LABEL'); ?></span></th>
-                        </tr>
+                            <tr>
+                                <th class="nowrap center" width="1%">#</th>
+                                <th class="nowrap center" width="1%"><?php echo JHtml::_('grid.checkall'); ?></th>
+                                <th class="nowrap " width="6%"><?php echo JText::_('COM_JEPROLAB_FEED_AUTHOR_LABEL'); ?></th>
+                                <th class="nowrap hidden-phone" width="12%"><?php echo JText::_('COM_JEPROLAB_FEED_TITLE_LABEL'); ?></th>
+                                <th class="nowrap " width="70%"><?php echo JText::_('COM_JEPROLAB_FEED_DESCRIPTION_LABEL'); ?></th>
+                                <th class="nowrap " width="4%"><span class="pull-right" ><?php echo JText::_('COM_JEPROLAB_ACTIONS_LABEL'); ?></span></th>
+                            </tr>
                         </thead>
                         <tbody>
                         <?php if(empty($this->feeds)){ ?>
@@ -77,7 +76,7 @@ JHtml::_('formbehavior.chosen', 'select');
                             <td class="nowrap ">
                                 <div class="btn-group-action" >
                                     <div class="btn-group pull-right" >
-                                        <a href="<?php echo $feed_view_link; ?>" class="btn btn-micro" ><i class="icon-search" ></i>&nbsp;<?php echo JText::_('COM_JEPROSHOP_DISPLAY_LABEL'); ?></a>
+                                        <a href="<?php echo $feed_view_link; ?>" class="btn btn-micro" ><i class="icon-search" ></i>&nbsp;<?php echo JText::_('COM_JEPROLAB_VIEW_LABEL'); ?></a>
                                        <button class="btn btn-micro dropdown_toggle" data-toggle="dropdown" ><i class="caret"></i> </button>
                                        <ul class="dropdown-menu">
                                            <li><a href="<?php echo $delete_feed_link; ?>" onclick="if(confirm('<?php echo JText::_('COM_JEPROLAB_DELETE_LABEL') . $feed->feed_title; ?>')){ return true; }else{ event.stopPropagation(); event.preventDefault(); };" title="<?php echo ucfirst(JText::_('COM_JEPROLAB_DELETE_LABEL')); ?>" class="delete"><i class="icon-trash" ></i>&nbsp;<?php echo ucfirst(JText::_('COM_JEPROLAB_DELETE_LABEL')); ?></a></li>

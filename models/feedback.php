@@ -25,7 +25,79 @@ defined('_JEXEC') or die('Restricted access');
 
 class JeproLabFeedBackModelFeedBack extends JModelLegacy
 {
+    public $feedback_id;
+
+    public $enjoy_working_with_us;
+
+    public  $staff_courtesy;
+
+    public $team_abilities;
+
+    public $team_availability;
+
+    public $problem_support;
+
+    public $general_comment;
+
+    public $online_services;
+
+    public $global_quality;
+
+    public $analyze_speed;
+
+    public $submission;
+
+    public $sample_delivery_speed;
+
+    public $service_speed;
+
+    public $recommend_our_services;
+
+    public $reuse_our_services;
+
+    public $help_us_improve_our_service;
+
+    public $how_do_you_learn_about_us;
+
+    public $service_comment_or_suggestion;
+
+    public $customer_name;
+
+    public $customer_phone;
+
+    public $customer_email;
+
+    public $customer_company;
+
+    public $reports_quality;
+
     private $pagination;
+
+    public function __construct($feedback_id = null){
+        $db = JFactory::getDBO();
+        if($feedback_id){
+            $cache_id = 'jeprolab_feedback_model_' . $feedback_id;
+            if(!JeprolabCache::isStored($cache_id)){
+                $query = "SELECT * FROM " . $db->quoteName('#__jeprolab_feedback') . " AS feedback WHERE feedback." . $db->quoteName('feedback_id') . " = " . (int)$feedback_id;
+
+                $db->setQuery($query);
+                $feedBackData = $db->loadObject();
+
+                if($feedBackData){
+                    JeprolabCache::store($cache_id, $feedBackData);
+                }
+            }else{
+                $feedBackData = JeprolabCache::retrieve($cache_id);
+            }
+
+            if($feedBackData){
+                $this->feedback_id = (int)$feedback_id;
+                foreach($feedBackData as $key => $value){
+                    if(array_key_exists($key, $this)) $this->{$key} = $value;
+                }
+            }
+        }
+    }
 
     public function getFeedsBack(JeproLabContext $context = null){
         jimport('joomla.html.pagination');
@@ -66,6 +138,10 @@ class JeproLabFeedBackModelFeedBack extends JModelLegacy
 
         $this->pagination = new JPagination($total, $limit_start, $limit);
         return $feedsBack;
+    }
+
+    public function getCustomer(){
+        return "";
     }
 
     public function getPagination(){

@@ -56,11 +56,11 @@ $document->addScript(JURI::base(). 'components/com_jeprolab/assets/javascript/ed
                 </div-->
                 <div class="control-group" >
                     <div class="control-label" ><label for="jform_feed_title-label" ><?php echo JText::_('COM_JEPROLAB_FEED_TITLE_LABEL'); ?></label></div>
-                    <div class="controls" ><?php echo  $this->helper->multiLanguageInputField('feed_title', true, null); ?></div>
+                    <div class="controls" ><?php echo  $this->helper->multiLanguageInputField('feed_title', true, true, null); ?></div>
                 </div>
                 <div class="control-group" >
                     <div class="control-label" ><label for="jform_feed_link" id="jform_feed_link-label" title="<?php echo JText::_('COM_JEPROLAB_FEED_LINK_TITLE_DESC'); ?>" ><?php echo JText::_('COM_JEPROLAB_FEED_LINK_LABEL'); ?></label></div>
-                    <div class="controls" ><input type="text" id="jform_feed_link" name="jform[feed_link]" class="width_input" /></div>
+                    <div class="controls" ><?php echo $this->helper->multiLanguageInputField("feed_link", true, true, null); ?></div>
                 </div>
                 <div class="control-group" >
                     <div class="control-label" ><label for="jform_feed_description" id="jform_feed_description-label" title="<?php echo JText::_('COM_JEPROLAB_FEED_DESCRIPTION_TITLE_DESC'); ?>"><?php echo JText::_('COM_JEPROLAB_FEED_DESCRIPTION_LABEL'); ?></label></div>

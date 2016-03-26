@@ -25,7 +25,7 @@ defined('_JEXEC') or die('Restricted access');
 
 class JeprolabFeedViewFeed extends JViewLegacy
 {
-    public $helper = null;
+       public $helper = null;
     public $languages = null;
     public $feed = null;
 
@@ -79,7 +79,7 @@ class JeprolabFeedViewFeed extends JViewLegacy
                 JToolbarHelper::addNew('add');
                 break;
         }
-        JeprolabHelper::sideBarRender('feed');
+        JeprolabHelper::sideBarRender('feeds');
     }
 
     public function loadObject($option = false){

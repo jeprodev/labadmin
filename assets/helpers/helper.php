@@ -202,7 +202,7 @@ class JeprolabHelper
 
     public static function sideBarRender($active)
     {
-        $dashboard = $catalog = $customer = $feedback = $feeds = $stats = $admins = $localisation = $setting = $shipping = false;
+        $dashboard = $catalog = $customer = $feedback = $feeds = $stats = $admins = $localisation = $setting = $shipping = $prices = false;
         switch ($active) {
             case 'catalog':
                 $catalog = true;
@@ -212,6 +212,9 @@ class JeprolabHelper
                 break;
             case 'feeds':
                 $feeds = true;
+                break;
+            case 'prices':
+                $prices = true;
                 break;
             case 'settings':
                 $setting = true;
@@ -239,7 +242,7 @@ class JeprolabHelper
         JHtmlSidebar::addEntry(JText::_('COM_JEPROLAB_CUSTOMERS_LABEL'), 'index.php?option=com_jeprolab&task=customers', $customer);
         JHtmlSidebar::addEntry(JText::_('COM_JEPROLAB_FEEDBACK_LABEL'), 'index.php?option=com_jeprolab&view=feedback', $feedback);
         JHtmlSidebar::addEntry(JText::_('COM_JEPROLAB_FEED_LABEL'), 'index.php?option=com_jeprolab&view=feed', $feeds);
-        JHtmlSidebar::addEntry(JText::_('COM_JEPROLAB_PRICE_RULES_LABEL'), 'index.php?option=com_jeprolab&view=prices', $feeds);
+        JHtmlSidebar::addEntry(JText::_('COM_JEPROLAB_PRICE_RULES_LABEL'), 'index.php?option=com_jeprolab&view=prices', $prices);
         JHtmlSidebar::addEntry(JText::_('COM_JEPROLAB_SHIPPING_LABEL'), 'index.php?option=com_jeprolab&view=shipping', $shipping);
         JHtmlSidebar::addEntry(JText::_('COM_JEPROLAB_LOCALISATION_LABEL'), 'index.php?option=com_jeprolab&view=country', $localisation);
         JHtmlSidebar::addEntry(JText::_('COM_JEPROLAB_SETTING_LABEL'), 'index.php?option=com_jeprolab&view=setting', $setting);

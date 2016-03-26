@@ -56,6 +56,7 @@ $document->addStyleSheet(JURI::base(true) .'/components/com_jeprolab/assets/them
                                 <th width="1%" class="nowrap center hidden-phone rotate-45" ><div><span class="design_wrap" ><?php echo JText::_('COM_JEPROLAB_ANALYZE_SPEED_LABEL'); ?></span><div></th>
                                 <th width="1%" class="nowrap center hidden-phone rotate-45" ><div><span class="design_wrap" ><?php echo JText::_('COM_JEPROLAB_ONLINE_SERVICES_LABEL'); ?></span><div></th>
                                 <th width="1%" class="nowrap center hidden-phone rotate-45" ><div><span class="design_wrap" ><?php echo JText::_('COM_JEPROLAB_GLOBAL_QUALITY_LABEL'); ?></span><div></th>
+                                <th width="4%" class="nowrap  rotate-45" ><div><span class="design_wrap" ><?php echo JText::_('COM_JEPROLAB_ACTIONS_LABEL'); ?></span></div></th>
                             </tr>
                         </thead>
                         <tbody>
@@ -63,6 +64,7 @@ $document->addStyleSheet(JURI::base(true) .'/components/com_jeprolab/assets/them
                             <tr><td colspan="17" ><div class="alert alert-no-items" ><?php echo JText::_('JGLOBAL_NO_MATCHING_RESULTS'); ?></div></td><tr>
                             <?php } else {
                                 foreach($this->feeds_back as $index => $feedback){
+                                    $feedBackViewLink = JRoute::_('index.php?option=com_jeprolab&view=feedback&task=view&feedback_id=' . (int)$feedback->feedback_id);
                                     $customerLink = JRoute::_('index.php?option?com_jeprolab&view=customer&task=view&customer_id=' . (int)$feedback->customer_id . '&' . JSession::getFormToken() . '=1' );?>
                                 <tr class="row_<?php echo $index % 2; ?>" >
                                     <td width="1%" class="nowrap center" ><?php echo $index; ?></td>
@@ -82,6 +84,13 @@ $document->addStyleSheet(JURI::base(true) .'/components/com_jeprolab/assets/them
                                     <td width="3%" class="nowrap center hidden-phone" ><i class="icon-<?php echo $feedback->analyze_speed; ?>" ></i></td>
                                     <td width="3%" class="nowrap center hidden-phone" ><i class="icon-<?php echo $feedback->online_services; ?>" ></i></td>
                                     <td width="3%" class="nowrap center hidden-phone" ><i class="icon-<?php echo $feedback->global_quality; ?>" ></i></td>
+                                    <td class="nowrap ">
+                                        <div class="btn-group-action" >
+                                            <div class="btn-group pull-right" >
+                                                <a href="<?php echo $feedBackViewLink; ?>" class="btn btn-micro" ><i class="icon-search" ></i>&nbsp;<?php echo JText::_('COM_JEPROLAB_VIEW_LABEL'); ?></a>
+                                            </div>
+                                        </div>
+                                    </td>
                                 </tr>
                             <?php }
                             } ?>

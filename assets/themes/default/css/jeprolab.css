@@ -44,9 +44,9 @@
 .panel .form_layout .control-label{ text-align: right; width:30%; padding: 0;}
 .panel .form_layout .control-label label{ text-align: right; margin-top: 0; font-weight:bold;}
 .panel-title{ height:20px; margin-bottom: -2px; padding: 10px 5px; font-weight: bold;
-    border-radius: 5px 5px 0px 0px;
-    -moz-border-radius: 5px 5px 0px 0px;
-    -webkit-border-radius: 5px 5px 0px 0px;
+    border-radius: 5px 5px 0 0;
+    -moz-border-radius: 5px 5px 0 0;
+    -webkit-border-radius: 5px 5px 0 0;
     border: 1px solid #b0adb0;
     background: -webkit-linear-gradient(top, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
     background: -o-linear-gradient(top, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
@@ -54,9 +54,71 @@
     background: -moz-linear-gradient(top, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
     background: linear-gradient(to bottom, rgb(202, 202, 202) 0%, rgb(255, 255, 255) 100%);
 }
+
 .panel_title{
     margin:0 0 10px 0; font-weight:bold; height:26px; padding-top:5px; padding-left: 10px;   background-image:url("../images/panel_title.png");
 }
+
+.icon-highly_satisfy{ background-image:url("../images/high-satisfied.png"); }
+.icon-satisfy{ background-image:url("../images/satisfied.png"); }
+.icon-unsatisfy{ background-image:url("../images/un-satisfied.png"); }
+.icon-highly_unsatisfy{ background-image:url("../images/highly-un-satisfied.png"); }
+
+.table-header-rotated{ max-width: 96%; }
+
+.table-header-rotated th.row-header{ width: auto; }
+.table-header-rotated td{
+    width: 40px;
+    border-top: 1px solid #dddddd;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    vertical-align: middle;
+    text-align: center;
+}
+.table-header-rotated th.rotate-45{
+    height: 160px;
+    width: 20px;
+    min-width: 25px;
+    max-width: 25px;
+    position: relative;
+    vertical-align: bottom;
+    padding: 0;
+    font-size: 16px;
+    /*line-height: 0.8; */
+}
+
+.table-header-rotated th.rotate-45 > div{
+    position: relative;
+    top: 0px;
+    left: 80px; /* 80 * tan(45) / 2 = 45 where 80 is the height on the cell and 45 is the transform angle*/
+    height: 100%;
+    -ms-transform:skew(-45deg,0deg);
+    -moz-transform:skew(-45deg,0deg);
+    -webkit-transform:skew(-45deg,0deg);
+    -o-transform:skew(-45deg,0deg);
+    transform:skew(-45deg,0deg);
+    overflow: hidden;
+    border-left: 1px solid #dddddd;
+    border-right: 1px solid #dddddd;
+    border-top: 1px solid #dddddd;
+}
+
+.table-header-rotated th.rotate-45 span {
+    -ms-transform:skew(45deg,0deg) rotate(315deg);
+    -moz-transform:skew(45deg,0deg) rotate(315deg);
+    -webkit-transform:skew(45deg,0deg) rotate(315deg);
+    -o-transform:skew(45deg,0deg) rotate(315deg);
+    transform:skew(45deg,0deg) rotate(315deg);
+    position: absolute;
+    bottom: 30px; /* 45 cos(45) = 28 with an additional 2px margin*/
+    left: -20px; /*Because it looked good, but there is probably a mathematical link here as well*/
+    display: inline-block;
+// width: 100%;
+    width: 85px; /* 80 / cos(45) - 45 cos (45) = 85 where 80 is the height of the cell, 45 the width of the cell and 45 the transform angle*/
+    text-align: left;
+// white-space: nowrap; /*whether to display in one line or not*/
+}
+
 
 #customer_form .control-label label{ text-align:right; }
 #logo_wrapper{ width:150px; margin-right: 10px; }

@@ -42,12 +42,12 @@ class JeprolabFeedModelFeed extends JModelLegacy
         if($feed_id){
             $cache_id = 'jeprolab_feed_model_' . $feed_id . '_' . $this->lang_id;
             if(!JeprolabCache::isStored($cache_id)){
-                $query = "SELECT * FROM " . $db->quoteName('#__jeprolab_feeds') . " AS feed WHERE feed." . $db->quoteName('feed_id') . " = " . (int)$feed_id;
+                $query = "SELECT * FROM " . $db->quoteName('#__jeprolab_feeds') . " AS feed ";
                 if($lang_id){
                     $query .= " LEFT JOIN " . $db->quoteName('#__jeprolab_feeds_lang') . " AS feed_lang ON (feed_lang" . $db->quoteName('feed_id') . " = feed.";
                     $query .= $db->quoteName('feed_id')  . " AND feed_lang." . $db->quoteName('lang_id') . " = " . (int)$lang_id . ")";
                 }
-
+                $query .= " WHERE feed." . $db->quoteName('feed_id') . " = " . (int)$feed_id;
                 $db->setQuery($query);
                 $feedData = $db->loadObject();
 
@@ -71,6 +71,7 @@ class JeprolabFeedModelFeed extends JModelLegacy
                             }
                         }
                     }
+                    JeprolabCache::store($cache_id, $feedData);
                 }
             }else{
                 $feedData = JeprolabCache::retrieve($cache_id);
@@ -129,7 +130,9 @@ class JeprolabFeedModelFeed extends JModelLegacy
             $use_limit = false;
 
         do {
-            $query = "SELECT SQL_CALC_FOUND_ROWS * FROM " . $db->quoteName('#__jeprolab_feeds') . " AS feed WHERE feed." . $db->quoteName('lang_id') . " = " . (int)$lang_id;
+            $query = "SELECT SQL_CALC_FOUND_ROWS * FROM " . $db->quoteName('#__jeprolab_feeds') . " AS feed LEFT JOIN ";
+            $query .= $db->quoteName('#__jeprolab_feeds_lang') . " AS feed_lang ON(feed.feed_id = feed_lang.feed_id AND ";
+            $query .= "feed_lang.lang_id = "  . $lang_id . ")"; // WHERE feed." . $db->quoteName('lang_id') . " = " . (int)$lang_id;
 
             $db->setQuery($query);
             $total = count($db->loadObjectList());
