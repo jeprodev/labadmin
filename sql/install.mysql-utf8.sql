@@ -26,7 +26,7 @@ CREATE TABLE IF NOT EXISTS `#__jeprolab_feedback` (
   PRIMARY KEY (`feedback_id`)
 ) ENGINE=MyIsam DEFAULT CHARACTER SET=utf8;
 
-CREATE TABLE IF NOT EXISTS `#__jeprolab_category`{
+CREATE TABLE IF NOT EXISTS `#__jeprolab_category`(
   `category_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `parent_id` int(10) unsigned NOT NULL,
   `default_lab_id` int(11) unsigned NOT NULL,
@@ -45,7 +45,7 @@ CREATE TABLE IF NOT EXISTS `#__jeprolab_category`{
   KEY `depth_level` (`depth_level`),
   KEY `n_left` (`n_left`),
   KEY `n_right` (`n_right`)
-} ENGINE=MyIsam DEFAULT CHARACTER SET=utf8;
+) ENGINE=MyIsam DEFAULT CHARACTER SET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__jeprolab_category_lang` (
   `category_id` int(10) unsigned NOT NULL,
@@ -79,9 +79,10 @@ CREATE TABLE IF NOT EXISTS `#__jeprolab_category_group` (
 CREATE TABLE IF NOT EXISTS `#__jeprolab_lab_group` (
   `lab_group_id` int(11) unsigned NOT  NULL AUTO_INCREMENT,
   `lab_group_name` varchar(64) CHARACTER SET utf8 NOT NULL,
-  `share_customer` tinyint(1) NOT NULL,
+  `share_customers` tinyint(1) NOT NULL,
   `share_orders` tinyint(1) NOT NULL,
   `share_results` tinyint(1) NOT NULL,
+  `share_stocks` tinyint(1) NOT NULL,
   `published` tinyint(1) NOT NULL DEFAULT '1',
   `deleted` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`lab_group_id`)
@@ -438,7 +439,7 @@ CREATE TABLE IF NOT EXISTS `#__jeprolab_connection` (
   `ip_address` BIGINT NULL DEFAULT NULL,
   `date_add` datetime NOT NULL,
   `http_referrer` varchar(255) default NULL,
-  PRIMARY KEY (`connections_id`),
+  PRIMARY KEY (`connection_id`),
   KEY `guest_id` (`guest_id`),
   KEY `date_add` (`date_add`),
   KEY `page_id` (`page_id`)
@@ -449,7 +450,7 @@ CREATE TABLE IF NOT EXISTS `#__jeprolab_connection_page` (
   `page_id` int(10) unsigned NOT NULL,
   `time_start` datetime NOT NULL,
   `time_end` datetime default NULL,
-  PRIMARY KEY (`connections_id`,`page_id`,`time_start`)
+  PRIMARY KEY (`connection_id`,`page_id`,`time_start`)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
 
 CREATE TABLE IF NOT EXISTS `#__jeprolab_connection_source` (
@@ -459,7 +460,7 @@ CREATE TABLE IF NOT EXISTS `#__jeprolab_connection_source` (
   `request_uri` varchar(255) default NULL,
   `keywords` varchar(255) default NULL,
   `date_add` datetime NOT NULL,
-  PRIMARY KEY (`connections_source_id`),
+  PRIMARY KEY (`connection_source_id`),
   KEY `connections` (`connection_id`),
   KEY `order_by` (`date_add`),
   KEY `http_referrer` (`http_referrer`),

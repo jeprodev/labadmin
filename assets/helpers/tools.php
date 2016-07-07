@@ -337,6 +337,8 @@ class JeprolabTools
         return $bool === null || is_bool($bool) || preg_match('/^0|1$/', $bool);
     }
 
+    public static function usingSecureMode(){ return false; }
+
 
     /*** token Manager **/
     public static function getCategoryToken(){ return ''; }
